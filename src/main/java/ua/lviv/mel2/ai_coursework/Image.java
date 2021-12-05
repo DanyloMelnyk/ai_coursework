@@ -1,5 +1,6 @@
 package ua.lviv.mel2.ai_coursework;
 
+import lombok.SneakyThrows;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
@@ -13,47 +14,40 @@ import java.awt.*;
 import java.io.File;
 
 public class Image extends JComponent {
-    private final Mat originalImage;
+    private Mat originalImage;
     private Mat image;
+    private int width;
     private double aspect;
 
+    @SneakyThrows
     public Image(File imageFile, int width) {
         super();
 
-        image = Imgcodecs.imread(imageFile.getName());
-        originalImage = image;
+        this.width = width;
 
+        load(imageFile.getCanonicalPath());
+
+        setPreferredSize(new Dimension(width, (int) (width * aspect)));
+    }
+
+    public void load(String filePath) {
+        image = Imgcodecs.imread(filePath);
+        if (image.empty()) {
+            throw new RuntimeException("Can't to load " + filePath);
+        } else {
+            System.out.println("Load image " + filePath);
+        }
+
+        originalImage = image;
         aspect = ((double) image.height()) / image.width();
 
-        resizeImage(new Size(width, (int) (width * aspect)));
-        setPreferredSize(new Dimension(width, (int) (width * aspect)));
-
-//        this.addComponentListener(new ComponentAdapter() {
-//            @Override
-//            public void componentResized(ComponentEvent e) {
-//                var size = e.getComponent().getSize();
-//                resizeImage(new Size(size.width, size.height));
-//            }
-//        });
+        repaint();
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(HighGui.toBufferedImage(image), 0, 0, this);
-    }
-
-    public void resizeImage(Size newSize) {
-        System.out.println("New size: " + newSize);
-        newSize.height = (int) (aspect * newSize.width);
-
-        setPreferredSize(new Dimension((int) newSize.width, (int) newSize.height));
-
-        var out = new Mat((int) newSize.height, (int) newSize.width, CvType.CV_8U);
-
-        Imgproc.resize(originalImage, out, newSize);
-
-        image = out;
+        g.drawImage(HighGui.toBufferedImage(image), 0, 0, width, (int) (width * aspect), this);
     }
 
     public void gauss() {
@@ -79,7 +73,6 @@ public class Image extends JComponent {
         Imgproc.blur(originalImage, out, new Size(10, 10));
         image = out;
         repaint();
-
     }
 
     public void medianBlur() {
