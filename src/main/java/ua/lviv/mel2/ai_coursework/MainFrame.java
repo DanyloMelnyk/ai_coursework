@@ -1,19 +1,27 @@
 package ua.lviv.mel2.ai_coursework;
 
+import ua.lviv.mel2.ai_coursework.filters.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 
 public class MainFrame extends JFrame {
-    public static final int WIDTH = 1280;
+    public static final int WIDTH = 1500;
     public static final int HEIGHT = 800;
-    private static final String[] FILTERS = new String[]{
-            "gauss", "bilateral", "blur", "medianBlur", "sobel"
+
+    private final Filter[] FILTERS = new Filter[]{
+            new Blur(this),
+            new MedianBlur(this),
+            new GaussianBlur(this),
+            new Canny(this),
+            new SqrBox(this),
+            new BilateralFilter(this)
     };
 
     private Image originalImage;
     private Image filteredImage;
-    private String currentFilter;
+    private Filter currentFilter;
 
     public MainFrame() {
         super("Test frame");
@@ -27,7 +35,7 @@ public class MainFrame extends JFrame {
         pack();
     }
 
-    private static JPanel createVerticalPanel() {
+    public static JPanel createVerticalPanel() {
         JPanel p = new JPanel();
         p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
         return p;
@@ -68,16 +76,11 @@ public class MainFrame extends JFrame {
             filteredImage.load(imagePath);
             applyFilter(filteredImage, currentFilter);
         }));
+
         panel.add(new ChooseFilterPanel(filter -> {
             applyFilter(filteredImage, filter);
             currentFilter = filter;
         }, FILTERS));
-        var slider = new JSlider(new DefaultBoundedRangeModel(51, 2, 1, 90));
-        panel.add(slider);
-        slider.addChangeListener(e -> {
-            System.out.println(((JSlider) e.getSource()).getValue()); //FIXME
-        });
-        slider.setPaintLabels(true);
 
         return panel;
     }
@@ -87,15 +90,11 @@ public class MainFrame extends JFrame {
         filteredImage = new Image(new File(fileName), WIDTH / 2);
     }
 
-    private void applyFilter(Image image, String filterName) {
-        switch (filterName) {
-            case "gauss" -> image.gauss();
-            case "bilateral" -> image.bilateral();
-            case "blur" -> image.blur();
-            case "medianBlur" -> image.medianBlur();
-            case "sqrBox" -> image.sqrBox();
-            case "sobel" -> image.sobel();
-            default -> throw new RuntimeException("Bad filter name" + filterName);
-        }
+    private void applyFilter(Image image, Filter filter) {
+        image.applyFilter(filter);
+    }
+
+    public void update() {
+        applyFilter(filteredImage, currentFilter);
     }
 }

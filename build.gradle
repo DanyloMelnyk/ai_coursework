@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'io.freefair.lombok' version "6.3.0"
+    id 'application'
+}
+
+group 'ua.lviv.mel2.ai_coursework'
+version '1.0-SNAPSHOT'
+
+application {
+    mainClass = 'ua.lviv.mel2.ai_coursework.Main'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation files('C:\\projects\\java\\ai\\lib\\opencv-454.jar')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}

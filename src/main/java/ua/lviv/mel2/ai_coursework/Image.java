@@ -8,6 +8,7 @@ import org.opencv.core.Size;
 import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
+import ua.lviv.mel2.ai_coursework.filters.Filter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -50,50 +51,7 @@ public class Image extends JComponent {
         g.drawImage(HighGui.toBufferedImage(image), 0, 0, width, (int) (width * aspect), this);
     }
 
-    public void gauss() {
-        var out = new Mat(originalImage.size(), CvType.CV_8U);
-
-        Imgproc.GaussianBlur(originalImage, out, new Size(11, 11), 2);
-        image = out;
-        repaint();
-    }
-
-    public void bilateral() {
-        var out = new Mat(originalImage.size(), CvType.CV_8U);
-
-        Imgproc.bilateralFilter(originalImage, out, 11, 1.2, 3.4);
-        image = out;
-        repaint();
-
-    }
-
-    public void blur() {
-        var out = new Mat(originalImage.size(), CvType.CV_8U);
-
-        Imgproc.blur(originalImage, out, new Size(10, 10));
-        image = out;
-        repaint();
-    }
-
-    public void medianBlur() {
-        var out = new Mat(originalImage.size(), CvType.CV_8U);
-
-        Imgproc.medianBlur(originalImage, out, 11);
-        image = out;
-        repaint();
-
-    }
-
-    public void sqrBox() {
-        var out = new Mat(originalImage.size(), CvType.CV_8U);
-
-        Imgproc.sqrBoxFilter(originalImage, out, 10, new Size(11, 10));
-        image = out;
-        repaint();
-
-    }
-
-    public void sobel() {
+    public void sobel() { // FIXME
         // https://docs.opencv.org/3.4/d2/d2c/tutorial_sobel_derivatives.html
         Mat src_gray = new Mat();
         int ddepth = CvType.CV_16S;
@@ -120,6 +78,12 @@ public class Image extends JComponent {
 
         image = grad;
 
+        repaint();
+    }
+
+    public void applyFilter(Filter filter) {
+        System.out.println("Apply filter: " + filter.getName());
+        image = filter.apply(originalImage);
         repaint();
     }
 }
