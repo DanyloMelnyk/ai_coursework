@@ -2,7 +2,7 @@ package ua.lviv.mel2.ai_coursework.filters;
 
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
-import ua.lviv.mel2.ai_coursework.MainFrame;
+import ua.lviv.mel2.ai_coursework.gui.MainFrame;
 
 import javax.swing.*;
 

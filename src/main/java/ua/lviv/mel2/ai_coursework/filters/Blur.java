@@ -3,13 +3,13 @@ package ua.lviv.mel2.ai_coursework.filters;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
-import ua.lviv.mel2.ai_coursework.MainFrame;
+import ua.lviv.mel2.ai_coursework.gui.MainFrame;
 
 import javax.swing.*;
 
 public class Blur extends AbstractFilter {
-    private int kernelWidth = 2;
-    private int kernelHeight = 2;
+    private int kernelWidth = 5;
+    private int kernelHeight = 5;
 
     public Blur(MainFrame mainFrame) {
         addSlider(new JSlider(1, 25, kernelWidth), "Kernel width", e -> {

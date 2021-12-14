@@ -1,4 +1,6 @@
-package ua.lviv.mel2.ai_coursework;
+package ua.lviv.mel2.ai_coursework.gui;
+
+import ua.lviv.mel2.ai_coursework.gui.actions.ChooseImageAction;
 
 import javax.swing.*;
 import java.util.function.Consumer;

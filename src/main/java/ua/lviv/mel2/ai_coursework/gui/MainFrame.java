@@ -1,10 +1,10 @@
-package ua.lviv.mel2.ai_coursework;
+package ua.lviv.mel2.ai_coursework.gui;
 
 import ua.lviv.mel2.ai_coursework.filters.*;
+import ua.lviv.mel2.ai_coursework.gui.actions.SaveImageAction;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
 
 public class MainFrame extends JFrame {
     public static final int WIDTH = 1500;
@@ -12,15 +12,26 @@ public class MainFrame extends JFrame {
 
     private final Filter[] FILTERS = new Filter[]{
             new Blur(this),
-            new MedianBlur(this),
             new GaussianBlur(this),
+            new MedianBlur(this),
+            new BilateralFilter(this),
+
+            new UnsharpFilter(this),
+
+            new PyrDown(this),
+            new PyrUp(this),
+            new SqrBox(this), // FIXME
+
             new Canny(this),
-            new SqrBox(this),
-            new BilateralFilter(this)
+            new LaplacianFilter(this),
+            new Sobel(this)
+
     };
 
-    private Image originalImage;
-    private Image filteredImage;
+    private ScrollablePicture originalImage1;
+
+    private ScrollablePicture filteredImage1;
+
     private Filter currentFilter;
 
     public MainFrame() {
@@ -29,7 +40,7 @@ public class MainFrame extends JFrame {
 
         loadImage("empty.png");
 
-        getContentPane().add(buildContent(), "North");
+        setContentPane(buildContent());
 
         setMinimumSize(new Dimension(WIDTH, HEIGHT));
         pack();
@@ -45,26 +56,29 @@ public class MainFrame extends JFrame {
         var pane = createVerticalPanel();
 
         pane.add(actionsPanel());
-
         pane.add(buildImagesPanel());
 
         return pane;
     }
 
     private JPanel buildImagesPanel() {
-        var panel = new JPanel(new GridLayout(1, 2));
+        var panel = createVerticalPanel();
+        var images = new JPanel(new GridLayout(1, 2));
 
         var col1 = createVerticalPanel();
         col1.add(new JLabel("Original"));
-        col1.add(originalImage);
+        col1.add(new JScrollPane(originalImage1));
 
-        panel.add(col1);
+        images.add(col1);
+
 
         var col2 = createVerticalPanel();
         col2.add(new JLabel("Filtered"));
-        col2.add(filteredImage);
+        col2.add(new JScrollPane(filteredImage1));
 
-        panel.add(col2);
+        images.add(col2);
+        panel.add(images);
+        panel.add(new JButton(new SaveImageAction(filteredImage1)), CENTER_ALIGNMENT);
 
         return panel;
     }
@@ -72,13 +86,13 @@ public class MainFrame extends JFrame {
     private JPanel actionsPanel() {
         var panel = createVerticalPanel();
         panel.add(new ChooseFilePanel(imagePath -> {
-            originalImage.load(imagePath);
-            filteredImage.load(imagePath);
-            applyFilter(filteredImage, currentFilter);
+            originalImage1.load(imagePath);
+            filteredImage1.load(imagePath);
+            applyFilter(filteredImage1, currentFilter);
         }));
 
-        panel.add(new ChooseFilterPanel(filter -> {
-            applyFilter(filteredImage, filter);
+        panel.add(new ChooseFilterTabPanel(filter -> {
+            applyFilter(filteredImage1, filter);
             currentFilter = filter;
         }, FILTERS));
 
@@ -86,15 +100,16 @@ public class MainFrame extends JFrame {
     }
 
     private void loadImage(String fileName) {
-        originalImage = new Image(new File(fileName), WIDTH / 2);
-        filteredImage = new Image(new File(fileName), WIDTH / 2);
+        originalImage1 = new ScrollablePicture(fileName, WIDTH / 2 - 28);
+
+        filteredImage1 = new ScrollablePicture(fileName, WIDTH / 2 - 28);
     }
 
-    private void applyFilter(Image image, Filter filter) {
+    private void applyFilter(ScrollablePicture image, Filter filter) {
         image.applyFilter(filter);
     }
 
     public void update() {
-        applyFilter(filteredImage, currentFilter);
+        applyFilter(filteredImage1, currentFilter);
     }
 }

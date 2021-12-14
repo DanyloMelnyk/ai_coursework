@@ -1,4 +1,4 @@
-package ua.lviv.mel2.ai_coursework;
+package ua.lviv.mel2.ai_coursework.gui;
 
 import lombok.SneakyThrows;
 import org.opencv.imgcodecs.Imgcodecs;

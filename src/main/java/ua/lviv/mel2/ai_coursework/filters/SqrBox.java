@@ -3,7 +3,7 @@ package ua.lviv.mel2.ai_coursework.filters;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
-import ua.lviv.mel2.ai_coursework.MainFrame;
+import ua.lviv.mel2.ai_coursework.gui.MainFrame;
 
 import javax.swing.*;
 
@@ -41,6 +41,8 @@ public class SqrBox extends AbstractFilter {
 
         var newM = new Mat();
         Imgproc.cvtColor(out, newM, Imgproc.COLOR_RGB2BGR);
+        System.out.println(img);
+        System.out.println(newM);
 
         return newM;
     }

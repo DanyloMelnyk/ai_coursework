@@ -1,6 +1,7 @@
-package ua.lviv.mel2.ai_coursework;
+package ua.lviv.mel2.ai_coursework.gui.actions;
 
 import lombok.SneakyThrows;
+import ua.lviv.mel2.ai_coursework.gui.ImageFileFilter;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -18,7 +19,7 @@ public class ChooseImageAction extends AbstractAction {
     @Override
     @SneakyThrows
     public void actionPerformed(ActionEvent e) {
-        var fileChooser = new JFileChooser();
+        var fileChooser = new JFileChooser(new File("."));
         fileChooser.setAcceptAllFileFilterUsed(false);
         fileChooser.addChoosableFileFilter(new ImageFileFilter());
 

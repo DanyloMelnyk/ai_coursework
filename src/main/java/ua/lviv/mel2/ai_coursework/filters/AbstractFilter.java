@@ -1,6 +1,6 @@
 package ua.lviv.mel2.ai_coursework.filters;
 
-import ua.lviv.mel2.ai_coursework.MainFrame;
+import ua.lviv.mel2.ai_coursework.gui.MainFrame;
 
 import javax.swing.*;
 import javax.swing.event.ChangeListener;
