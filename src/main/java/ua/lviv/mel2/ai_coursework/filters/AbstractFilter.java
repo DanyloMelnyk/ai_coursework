@@ -29,10 +29,9 @@ public abstract class AbstractFilter implements Filter {
         panel.setBorder(BorderFactory.createTitledBorder(name));
         s.addChangeListener(listener);
         panel.add(s);
+        var label = new JLabel(String.format("%3f", s.getValue() * step));
 
-        var label = new JLabel(String.valueOf(s.getValue() * step));
-
-        s.addChangeListener(e -> label.setText(String.valueOf(((JSlider) e.getSource()).getValue() * step)));
+        s.addChangeListener(e -> label.setText(String.format("%3f", ((JSlider) e.getSource()).getValue() * step)));
         panel.add(label);
         settingsPanel.add(panel);
     }

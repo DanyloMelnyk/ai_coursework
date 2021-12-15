@@ -4,44 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="570100a7-4b1f-4930-ab7a-ee7a4f545582" name="Changes" comment="Move to gradle, add some filters">
+    <list default="true" id="570100a7-4b1f-4930-ab7a-ee7a4f545582" name="Changes" comment="WIP">
       <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/5/05efc8b1657769a27696d478ded1e95f38737233" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/a/2a45a911a8f1836b0b6c5b758962572012d8f8c3" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/3/7354e49604e1ea40dea73b1c1ac8cff21844bd63" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/9/b94120cfb9db70b02dba9525fe1b66cfc66aae15" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/4/c4b1f10f316e1d7c1fc9de6e5f70d9fc3f3cd27d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/LaplacianFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/PyrDown.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/PyrUp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/Sobel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/UnsharpFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/GG.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/ScrollablePicture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/actions/SaveImageAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/Dilating.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/Erosion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/ChooseFilePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/ChooseFilePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/ChooseFilterPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/ChooseFilterPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/ChooseImageAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/actions/ChooseImageAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/ImageFileFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/ImageFileFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/MainFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/AbstractFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/AbstractFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/BilateralFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/BilateralFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/Blur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/Blur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/Canny.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/Canny.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/GaussianBlur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/GaussianBlur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/MedianBlur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/MedianBlur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/SqrBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/SqrBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/LaplacianFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/LaplacianFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/PyrUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/PyrUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/Sobel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/Sobel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/UnsharpFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/filters/UnsharpFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/ChooseFilePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/ChooseFilePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/ChooseFilterPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/ScrollablePicture.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/actions/SaveImageAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/lviv/mel2/ai_coursework/gui/actions/SaveImageAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +78,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -121,11 +113,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ua.lviv.mel2.ai_coursework.gui" />
       <recent name="ua.lviv.mel2.ai_coursework.filters" />
+      <recent name="ua.lviv.mel2.ai_coursework.gui" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.run">
+  <component name="RunManager" selected="Gradle.ai_coursework [distZip]">
     <configuration name="GG" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ua.lviv.mel2.ai_coursework.gui.GG" />
       <module name="ai_coursework.main" />
@@ -152,18 +144,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ai_coursework [help]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ai_coursework [distZip]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--scan" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="help" />
+            <option value="distZip" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ai_coursework [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -218,18 +231,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Gradle.run" />
-      <item itemvalue="Gradle.ai_coursework [help]" />
-      <item itemvalue="Gradle.ai_coursework [wrapper --gradle-version 7.3.1]" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.GG" />
+      <item itemvalue="Gradle.run" />
+      <item itemvalue="Gradle.ai_coursework [wrapper --gradle-version 7.3.1]" />
+      <item itemvalue="Gradle.ai_coursework [jar]" />
+      <item itemvalue="Gradle.ai_coursework [distZip]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ai_coursework [distZip]" />
+        <item itemvalue="Gradle.ai_coursework [jar]" />
         <item itemvalue="Application.GG" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.ai_coursework [wrapper --gradle-version 7.3.1]" />
-        <item itemvalue="Gradle.ai_coursework [help]" />
       </list>
     </recent_temporary>
   </component>
@@ -246,7 +261,8 @@
       <workItem from="1639418438700" duration="462000" />
       <workItem from="1639422413918" duration="968000" />
       <workItem from="1639495035647" duration="192000" />
-      <workItem from="1639503300605" duration="10480000" />
+      <workItem from="1639503300605" duration="11305000" />
+      <workItem from="1639575121780" duration="9749000" />
     </task>
     <task id="LOCAL-00001" summary="Move to gradle, add some filters">
       <created>1639318732609</created>
@@ -255,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639318732609</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="WIP">
+      <created>1639524554128</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1639524554128</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +297,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Move to gradle, add some filters" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move to gradle, add some filters" />
+    <MESSAGE value="WIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

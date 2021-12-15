@@ -1,73 +1,60 @@
 package ua.lviv.mel2.ai_coursework.gui;
 
-import lombok.SneakyThrows;
+
 import org.opencv.core.Mat;
+import org.opencv.core.Size;
 import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.imgproc.Imgproc;
 import ua.lviv.mel2.ai_coursework.filters.Filter;
 
 import javax.swing.*;
-import java.awt.*;
-import java.io.File;
 
-public class Image extends JComponent {
-    private Mat originalImage;
-    private Mat image;
-    private int width;
-    private double aspect;
+public class Image extends JLabel {
 
+    private final int width;
     private String fileName;
     private String fileExt;
+    private Mat image;
+    private Mat originalImage;
+
     private String filterName;
 
-    @SneakyThrows
-    public Image(File imageFile, int width) {
-        super();
 
+    public Image(String filePath, int width) {
+        super();
         this.width = width;
 
-        load(imageFile.getCanonicalPath());
-        setAutoscrolls(true); //enable synthetic drag events
+        load(filePath);
     }
 
     public void load(String filePath) {
-        image = Imgcodecs.imread(filePath);
-        if (image.empty()) {
+        var loadedImage = Imgcodecs.imread(filePath);
+        if (loadedImage.empty()) {
             throw new RuntimeException("Can't to load " + filePath);
         } else {
             System.out.println("Load image " + filePath);
         }
 
+        var lastDot = filePath.lastIndexOf('.');
+
+        fileName = filePath.substring(0, lastDot);
+        fileExt = filePath.substring(lastDot);
+
+        var aspect = ((double) loadedImage.height()) / loadedImage.width();
+
+        image = new Mat();
+        Imgproc.resize(loadedImage, image, new Size(width, width * aspect));
+
         originalImage = image;
-        aspect = ((double) image.height()) / image.width();
-
-        var origName = filePath;
-        var lastDot = origName.lastIndexOf('.');
-
-        this.fileName = origName.substring(0, lastDot);
-        this.fileExt = origName.substring(lastDot);
-
-        setPreferredSize(new Dimension(width, (int) (width * aspect)));
-
-        repaint();
-//        if (getParent() != null) {
-//            getParent().repaint();
-//        }
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.drawImage(HighGui.toBufferedImage(image), 0, 0, width, (int) (width * aspect), this);
-//        g.
+        setIcon(new ImageIcon(HighGui.toBufferedImage(image)));
     }
 
     public void applyFilter(Filter filter) {
-        System.out.println("Apply filter: " + filter.getName());
-
         filterName = filter.getName();
         image = filter.apply(originalImage);
-        repaint();
+        setIcon(new ImageIcon(HighGui.toBufferedImage(image)));
+        setAutoscrolls(true);
     }
 
     public void save() {
@@ -75,5 +62,4 @@ public class Image extends JComponent {
         System.out.println("Save img as " + filename);
         Imgcodecs.imwrite(filename, image);
     }
-
 }

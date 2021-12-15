@@ -9,11 +9,9 @@ import javax.swing.*;
 public class BilateralFilter extends AbstractFilter {
     private static final double STEP = 0.5;
 
-
     private int d = 2;
     private double sigmaColor = 5;
     private double sigmaSpace = 5;
-
 
     public BilateralFilter(MainFrame mainFrame) {
         addSlider(new JSlider(1, 10, d), "Diameter", e -> {

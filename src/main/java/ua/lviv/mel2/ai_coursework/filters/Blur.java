@@ -24,7 +24,7 @@ public class Blur extends AbstractFilter {
 
     @Override
     public String getName() {
-        return "Blur (box filter)";
+        return "Box filter";
     }
 
 

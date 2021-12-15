@@ -11,7 +11,7 @@ public class PyrUp extends AbstractFilter {
 
     @Override
     public String getName() {
-        return "PyrUp1";
+        return "PyrUp";
     }
 
 

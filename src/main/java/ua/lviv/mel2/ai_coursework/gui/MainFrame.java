@@ -18,19 +18,20 @@ public class MainFrame extends JFrame {
 
             new UnsharpFilter(this),
 
-            new PyrDown(this),
-            new PyrUp(this),
-            new SqrBox(this), // FIXME
+//            new PyrDown(this),
+//            new PyrUp(this),
 
             new Canny(this),
             new LaplacianFilter(this),
-            new Sobel(this)
+            new Sobel(this),
 
+            new Erosion(this),
+            new Dilating(this)
     };
 
-    private ScrollablePicture originalImage1;
+    private Image originalImage1;
 
-    private ScrollablePicture filteredImage1;
+    private Image filteredImage1;
 
     private Filter currentFilter;
 
@@ -42,7 +43,8 @@ public class MainFrame extends JFrame {
 
         setContentPane(buildContent());
 
-        setMinimumSize(new Dimension(WIDTH, HEIGHT));
+        setSize(WIDTH, HEIGHT);
+//        setMinimumSize(new Dimension(WIDTH, HEIGHT));
         pack();
     }
 
@@ -63,6 +65,7 @@ public class MainFrame extends JFrame {
 
     private JPanel buildImagesPanel() {
         var panel = createVerticalPanel();
+        panel = new JPanel(new BorderLayout());
         var images = new JPanel(new GridLayout(1, 2));
 
         var col1 = createVerticalPanel();
@@ -78,7 +81,7 @@ public class MainFrame extends JFrame {
 
         images.add(col2);
         panel.add(images);
-        panel.add(new JButton(new SaveImageAction(filteredImage1)), CENTER_ALIGNMENT);
+        panel.add(new JButton(new SaveImageAction(filteredImage1)), BorderLayout.SOUTH);
 
         return panel;
     }
@@ -100,12 +103,12 @@ public class MainFrame extends JFrame {
     }
 
     private void loadImage(String fileName) {
-        originalImage1 = new ScrollablePicture(fileName, WIDTH / 2 - 28);
+        originalImage1 = new Image(fileName, WIDTH / 2 - 28);
 
-        filteredImage1 = new ScrollablePicture(fileName, WIDTH / 2 - 28);
+        filteredImage1 = new Image(fileName, WIDTH / 2 - 28);
     }
 
-    private void applyFilter(ScrollablePicture image, Filter filter) {
+    private void applyFilter(Image image, Filter filter) {
         image.applyFilter(filter);
     }
 
